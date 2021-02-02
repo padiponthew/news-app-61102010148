@@ -22,8 +22,9 @@
 {% else %}
 
 <img src = '{{weather.url_icon}}' alt = "Weather Icon">
-<h3><i class="fas fa-map-marker-alt"></i> City: <b style="color:tomato;">{{weather.city}}, {{weather.country}}</b></h3><br>
-<h2><i class="fas fa-temperature-high"></i> Temperature: <b style="color:tomato;">{{weather.temperature}} &#8451</b></h2>
+<h3><i class="fas fa-map-marker-alt"></i> City: <b style="color:tomato;">{{weather.city}}, {{weather.country}}</b> &nbsp; <i class="fas fa-cloud-sun-rain"></i> Description: <b style="color:tomato;">{{weather.description}}</b></h3><br>
+<h2><i class="fas fa-temperature-high"></i> Temperature: <b style="color:tomato;">{{weather.temperature}} &#8451</b></h2><br>
+<h3><i class="fab fa-cloudscale"></i> Pressure: <b style="color:tomato;">{{weather.pressure}} Pascal</b> &nbsp; <i class="fas fa-hand-holding-water"></i> Humidity: <b style="color:tomato;">{{weather.humidity}}%</b> &nbsp; <i class="fas fa-wind"></i> Wind: <b style="color:tomato;">{{weather.wind}} KM/H</b></h3>
 
 {% endif %}
 
