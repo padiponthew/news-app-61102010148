@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1> <b style = 'color:brown'> Weather </b></h1><br>
+
+
+
+<form>
+    <h3>Weather Search</h3>
+    <input class="form-control  form-control-lg" name="city" type="text" placeholder="type location here...">
+  
+      <br>
+      <button type="submit" value="Submit" class="btn btn-outline-light btn-lg"> <i class="fa fa-search" aria-hidden="true"></i> <b>Search</b></button>
+      
+</form>
+
+{%if weather.description == "city not found"%}
+
+<h1><b style = 'color:brown'>Not Found</b></h1>
+
+{% else %}
+
+<img src = '{{weather.url_icon}}' alt = "Weather Icon">
+<h3><i class="fas fa-map-marker-alt"></i> City: <b style="color:tomato;">{{weather.city}}, {{weather.country}}</b></h3><br>
+<h2><i class="fas fa-temperature-high"></i> Temperature: <b style="color:tomato;">{{weather.temperature}} &#8451</b></h2>
+
+{% endif %}
+
+<br><hr style="border-top: 3px solid black;">
+<h1> <b style='color:brown'>COVID-19 NEWS</b></h1><br>
+
+{% if news == None %}
+
+<br>
+<h1 style='color:brown'><b>news not found</b></h1>
+<br>
+{% else %}
+
+{%for i in range(5) %}
+
+<div class="jumbotron mt-3 bg-dark shadow-lg">
+    <div class="container">
+        <div style="text-align: left;">
+        <h5><i class="far fa-newspaper"></i> News #{{i+1}}: <b><a href="{{news.urlList[i]}}" target="_blank">{{news.titleList[i]}}</a></b></h5> <br>
+        <img src="{{news.urlToImageList[i]}}" alt="NewsImage" class="center"> <br>
+        <hr style="border-top: 1px solid whitesmoke;">
+        <p>{{news.descriptionList[i]}} <a href="{{news.urlList[i]}}" target="_blank">Read more</a></p>
+        </div>
+    </div>
+  </div>
+
+{% endfor %}
+
+
+{% endif %}
+
+{% endblock %}
