@@ -44,6 +44,9 @@ def get_weather(city,API_KEY):
     
             description = parsed['weather'][0]['description']
             temperature = parsed['main']['temp']
+            pressure = parsed['main']['pressure']
+            humidity = parsed['main']['humidity']
+            wind = parsed['wind']['speed']
         
             icon =  parsed['weather'][0]['icon']
             url_icon = f"http://openweathermap.org/img/wn/{icon}@2x.png"
@@ -53,6 +56,9 @@ def get_weather(city,API_KEY):
 
             weather = {'description': description,
                     'temperature': temperature,
+                    'pressure': pressure,
+                    'humidity': humidity,
+                    'wind': wind,
                     'city': city,
                     'country': country,
                     'url_icon': url_icon,
